@@ -1,4 +1,4 @@
-import { Link as RouterLink, useNavigate } from "react-router-dom";
+import { Link as RouterLink } from "react-router-dom";
 
 import { Button, Grid, Link } from "@mui/material";
 
@@ -6,13 +6,13 @@ import * as Yup from "yup";
 import { FormikHelpers } from "formik";
 
 import AuthLayout from "./AuthLayout";
-import TextField from "~/FormsUI/TextField";
+import TextField from "@/FormsUI/TextField";
 
 const INITIAL_FORM_STATE = {
-    email: "test@test.fr",
-    username: "test1",
-    password: "test12",
-    "password-confirmation": "test12"
+    email: "wow@email.com",
+    username: "wowUsername",
+    password: "wowPassword",
+    "password-confirmation": "wowPassword"
 };
 
 type FormType = typeof INITIAL_FORM_STATE;
@@ -101,15 +101,8 @@ function SignUpForm(): JSX.Element {
 }
 
 export default function SignUp(): JSX.Element {
-    const navigate = useNavigate();
-
-    function handleSubmit(values: FormType, actions: FormikHelpers<FormType>): void
-    {
+    function handleSubmit(values: FormType, actions: FormikHelpers<FormType>): void {
         alert(`${values.email}, ${values.username}, ${values.password}`)
-
-        navigate("/welcome", {
-            replace: true
-        });
     }
 
     return (

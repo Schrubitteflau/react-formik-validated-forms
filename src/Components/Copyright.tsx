@@ -11,7 +11,7 @@ export default function Copyright(props: CopyrightProps): JSX.Element {
     return (
         <Typography variant="body2" align="center" sx={props.sx}>
             {"Copyright © "}
-        <Link color="inherit" href="https://mui.com/">
+        <Link color="inherit" target="_blank" href="https://theuselessweb.com/">
             wowForms
         </Link>
             {` ${year}.`}

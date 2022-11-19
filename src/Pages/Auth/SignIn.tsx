@@ -1,15 +1,16 @@
+import { Link as RouterLink } from "react-router-dom";
+
 import { Button, Checkbox, FormControlLabel, Grid, Link } from "@mui/material";
-import { Link as RouterLink, useNavigate } from "react-router-dom";
 
 import * as Yup from "yup";
 import { FormikHelpers } from "formik";
 
 import AuthLayout from "./AuthLayout";
-import TextField from "~/FormsUI/TextField";
+import TextField from "@/FormsUI/TextField";
 
 const INITIAL_FORM_STATE = {
-    username: "test1",
-    password: "test12",
+    username: "wowUsername",
+    password: "wowPassword",
 };
 
 type FormType = typeof INITIAL_FORM_STATE;
@@ -81,14 +82,8 @@ function SignInForm(): JSX.Element {
 }
 
 export default function SignIn(): JSX.Element {
-    const navigate = useNavigate();
-
     function handleSubmit(values: FormType, actions: FormikHelpers<FormType>): void {
         alert(`${values.username}, ${values.password}`);
-
-        navigate("/welcome", {
-            replace: true
-        });
     }
 
     return (

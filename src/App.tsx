@@ -1,26 +1,30 @@
-import { Route, Routes } from "react-router";
+import { Route, Routes, BrowserRouter, Link } from "react-router-dom";
 
 import "./App.css";
 
 import SignIn from "./Pages/Auth/SignIn";
 import SignUp from "./Pages/Auth/SignUp";
 
-// TODO : garder ?
-// TODO : import react ?
-declare module 'react' {
-  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
-      // extends React's HTMLAttributes
-      sx?: any//SxProps<Theme>;
-  }
+function Welcome(): JSX.Element {
+    return (
+        <>
+            <h1>Welcome</h1>
+            <Link to="/sign-in" replace>Sign in</Link>
+            <Link to="/sign-up" replace>Sign up</Link>
+        </>
+    )
 }
 
 function App(): JSX.Element {
     return (
-        <Routes>
-            <Route path="/signin" element={<SignIn />} />
-            <Route path="/signup" element={<SignUp />} />
-            <Route path="*" element={<h1>Not found</h1>} />
-        </Routes>
+        <BrowserRouter>
+            <Routes>
+                <Route path="/" element={<Welcome />} />
+                <Route path="/sign-in" element={<SignIn />} />
+                <Route path="/sign-up" element={<SignUp />} />
+                <Route path="*" element={<h1>Not found</h1>} />
+            </Routes>
+        </BrowserRouter>
     );
 }
 

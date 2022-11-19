@@ -25,8 +25,7 @@ type TextFieldWrapperProps =
     FilledTextFieldWrapperProps |
     OutlinedTextFieldWrapperProps;
 
-export default function TextFieldWrapper(props: TextFieldWrapperProps): JSX.Element
-{
+export default function TextFieldWrapper(props: TextFieldWrapperProps): JSX.Element {
     const [ field, meta ] = useField(props.name);
 
     const defaults: TextFieldProps = {
@@ -42,8 +41,7 @@ export default function TextFieldWrapper(props: TextFieldWrapperProps): JSX.Elem
         helperText: ""
     };
 
-    if (meta && meta.touched && meta.error)
-    {
+    if (meta && meta.touched && meta.error) {
         configTextField.error = true;
         configTextField.helperText = meta.error;
     }

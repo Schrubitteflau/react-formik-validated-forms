@@ -5,7 +5,7 @@ import { ThemeProvider } from "@emotion/react";
 import * as Yup from "yup";
 import { Form, Formik, FormikHelpers, FormikValues } from "formik";
 
-import Copyright from "~/Components/Copyright";
+import Copyright from "@/Components/Copyright";
 
 const theme = createTheme();
 
