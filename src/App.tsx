@@ -1,26 +1,27 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import { Route, Routes } from "react-router";
 
-function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+import "./App.css";
+
+import SignIn from "./Pages/Auth/SignIn";
+import SignUp from "./Pages/Auth/SignUp";
+
+// TODO : garder ?
+// TODO : import react ?
+declare module 'react' {
+  interface HTMLAttributes<T> extends AriaAttributes, DOMAttributes<T> {
+      // extends React's HTMLAttributes
+      sx?: any//SxProps<Theme>;
+  }
+}
+
+function App(): JSX.Element {
+    return (
+        <Routes>
+            <Route path="/signin" element={<SignIn />} />
+            <Route path="/signup" element={<SignUp />} />
+            <Route path="*" element={<h1>Not found</h1>} />
+        </Routes>
+    );
 }
 
 export default App;
